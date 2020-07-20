@@ -19,28 +19,27 @@ export class CarouselComponent implements OnInit {
     ];
 
     currentSlide = 0;
-    screenSlidesCount = 4;
+    slidesToShow = 4;
     nextBtnDisabled = false;
     prevBtnDisabled = true;
-
     screenWidth: number;
 
     constructor() {
         this.onResize();
     }
 
-    ngOnInit(): void {
-        if (this.slides.length <= this.screenSlidesCount) {
-            this.nextBtnDisabled = true;
-        }
+    ngOnInit() {
     }
 
     @HostListener('window:resize', ['$event'])
-    onResize(event?) {
+    onResize(event?): void {
         this.screenWidth = window.innerWidth;
+        this.currentSlide = 0;
+        this.nextBtnDisabled = false;
+        this.prevBtnDisabled = true;
     }
 
-    onPreviousClick() {
+    onPreviousClick(): void {
         this.nextBtnDisabled = false;
         this.currentSlide = this.currentSlide - 1;
         if (this.currentSlide === 0) {
@@ -48,12 +47,16 @@ export class CarouselComponent implements OnInit {
         }
     }
 
-    onNextClick() {
+    onNextClick(): void {
         this.prevBtnDisabled = false;
         this.currentSlide = this.currentSlide + 1;
 
-        if (this.currentSlide === this.slides.length - this.screenSlidesCount) {
+        if (this.currentSlide === this.slides.length - this.slidesToShow) {
             this.nextBtnDisabled = true;
         }
+    }
+
+    switchNextPoint(slideIndex: number): void {
+        this.currentSlide = slideIndex;
     }
 }
