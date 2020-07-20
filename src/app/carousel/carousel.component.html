@@ -1,0 +1,21 @@
+<div class="carousel">
+  <button class="control prev" (click)="onPreviousClick()" [disabled]="prevBtnDisabled">
+    PREV
+  </button>
+
+  <ng-container *ngFor="let slide of slides; index as slideIndex">
+    <img
+      [src]="slide.src"
+      class="slide"
+      *ngIf="slideIndex === currentSlide ||
+              slideIndex === currentSlide + 1 ||
+              slideIndex === currentSlide + 2 ||
+              slideIndex === currentSlide + 3"
+    />
+  </ng-container>
+
+
+  <button class="control next" (click)="onNextClick()" [disabled]="nextBtnDisabled">
+    NEXT
+  </button>
+</div>
