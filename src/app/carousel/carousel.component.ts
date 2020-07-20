@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, HostListener} from '@angular/core';
 
 @Component({
     selector: 'app-carousel',
@@ -23,13 +23,21 @@ export class CarouselComponent implements OnInit {
     nextBtnDisabled = false;
     prevBtnDisabled = true;
 
+    screenWidth: number;
+
     constructor() {
+        this.onResize();
     }
 
     ngOnInit(): void {
         if (this.slides.length <= this.screenSlidesCount) {
             this.nextBtnDisabled = true;
         }
+    }
+
+    @HostListener('window:resize', ['$event'])
+    onResize(event?) {
+        this.screenWidth = window.innerWidth;
     }
 
     onPreviousClick() {
