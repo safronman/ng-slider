@@ -1,4 +1,4 @@
-.container {
+.desktop-nav {
     display: flex;
     justify-content: space-between;
     background-color: black;
@@ -6,31 +6,26 @@
     align-items: center;
     padding: 0 20px;
     box-sizing: border-box;
-    margin-bottom: 50px;
 }
 
 .container-logo {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    order: 1;
 }
 
-.container-right {
+.menu-open {
+    display: none;
+}
+
+.logo {
+    color: white;
+}
+
+.menu-desktop-list {
     width: 100%;
     display: flex;
     justify-content: flex-end;
-    order: 2;
-}
-
-.container-cart {
-    border: 1px solid yellow;
-    order: 3;
-}
-
-.menu-list {
-    display: flex;
-    justify-content: space-between;
 }
 
 .menu-item {
@@ -41,21 +36,53 @@
     margin-right: 20px;
 }
 
-.logo {
-    color: white;
-}
-
-.menu-open {
+.container-right--mobile {
     display: none;
 }
 
+.mobile-nav {
+    display: none;
+}
+
+.mobile-nav-column {
+    flex-direction: column;
+    background-color: blueviolet !important;
+}
+
+.mobile-logo-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo-1 {
+    order: 1;
+}
+
+.menu-open-1 {
+    order: 2;
+}
+
 @media (max-width: 1200px) {
-    .container {
-        flex-direction: column;
-        align-items: flex-start;
+    .desktop-nav {
+        display: none;
     }
 
-    .container-right {
+    .menu-open {
+        display: flex;
+    }
+
+    .mobile-nav {
+        display: flex;
+        justify-content: space-between;
+        background-color: black;
+    }
+
+    .menu-desktop-list {
+        display: none;
+    }
+
+    .container-right--mobile {
+        display: flex;
         width: 100%;
         flex-direction: column;
         background-color: lightgray;
@@ -65,19 +92,15 @@
         order: 3;
     }
 
-    .container-cart {
-        border: 1px solid yellow;
-        order: 2;
-    }
-
-    .menu-open {
-        display: block;
-        margin-right: 20px;
+    .menu-mobile-list {
+        margin: 0;
+        padding: 0;
     }
 
     .menu-item {
         color: black;
         border-bottom: 1px solid black;
-        padding-left: 20px;
+        padding: 10px;
+        margin: 0;
     }
 }
