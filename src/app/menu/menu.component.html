@@ -1,14 +1,13 @@
 <!--Desktop menu-->
-<div class="desktop-nav">
-    <h1 class="logo">logotype</h1>
-    <ul class="menu-desktop-list">
-        <li class="menu-item">Главная</li>
-        <li class="menu-item">Биты</li>
-        <li class="menu-item">Лицензии и цены</li>
-        <li class="menu-item">Товары</li>
-        <li class="menu-item">Услуги</li>
-        <li class="menu-item">Контакты</li>
-    </ul>
+<div class="menu--desktop">
+    <h1 class="menu--logo">Logo</h1>
+    <div class="menu--desktop-list">
+        <app-menu-item *ngFor="let item of mobItems"
+                       title="{{ item.title }}"
+                       [isMob]="false"
+        >
+        </app-menu-item>
+    </div>
     <img src="../../assets/icons/cart-icon.svg" alt="cart icon">
 </div>
 
@@ -16,22 +15,20 @@
 <div class="mobile-nav" [ngClass]="{'mobile-nav-column': isMenuOpen}">
     <div class="mobile-logo-container">
         <img class="menu-open" [ngClass]="{'menu-open-1': isMenuOpen}"
-            src="{{ isMenuOpen ? menuClose : menuOpen }}"
-            alt="menu icon"
-            (click)="toggleMenu()">
-        <h1 class="logo" [ngClass]="{'logo-1': isMenuOpen}">
-            {{ !isMenuOpen ? "Logotype" : "Страницы сайта" }}
+             src="{{ isMenuOpen ? menuClose : menuOpen }}"
+             alt="menu icon"
+             (click)="toggleMenu()">
+        <h1 class="menu--logo" [ngClass]="{'menu--logo__order': isMenuOpen}">
+            {{ !isMenuOpen ? "Logo" : "Страницы сайта" }}
         </h1>
     </div>
     <div *ngIf="isMenuOpen" class="container-right--mobile">
-        <ul class="menu-mobile-list">
-            <li class="menu-item">Главная</li>
-            <li class="menu-item">Биты</li>
-            <li class="menu-item">Лицензии и цены</li>
-            <li class="menu-item">Товары</li>
-            <li class="menu-item">Услуги</li>
-            <li class="menu-item">Контакты</li>
-        </ul>
+        <app-menu-item *ngFor="let item of mobItems"
+                       title="{{ item.title }}"
+                       icon="{{ item.icon }}"
+                       [isMob]="true"
+        >
+        </app-menu-item>
     </div>
     <img *ngIf="!isMenuOpen" src="../../assets/icons/cart-icon.svg" alt="cart icon">
 </div>
