@@ -1,2 +1,10 @@
 <app-menu></app-menu>
 <app-carousel></app-carousel>
+
+<div class="wrap">
+    <div *ngIf="visibleMode" [@box]="boxState" class="box"></div>
+</div>
+
+<button (click)="boxAnimateHandler()">box animate</button>
+<button (click)="boxAnimateSpecialHandler()">box animate special</button>
+<button (click)="toggleVisible()">toggle visible</button>

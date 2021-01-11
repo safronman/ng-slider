@@ -7,8 +7,11 @@
         PREV
     </button>
 
-    <ng-container *ngFor="let slide of slides; index as slideIndex">
+    <ng-container *ngFor="let slide of slides; index as slideIndex" >
         <img
+            [@carousel]="visibleState"
+            (@carousel.start)='animationStart($event)'
+            (@carousel.done)='animationEnd($event)'
             [src]="slide.src"
             class="slide"
             *ngIf="(slideIndex === currentSlide) ||
