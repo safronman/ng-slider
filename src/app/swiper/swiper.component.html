@@ -1,0 +1,38 @@
+<swiper (swiper)="onSwiper($event)"
+        (slideChange)="onSlideChange()"
+        [navigation]="true"
+        [simulateTouch]="true"
+        [slideToClickedSlide]="true"
+        [speed]="1000"
+        [pagination]="{
+            clickable: true,
+            dynamicBullets: false,
+            type: 'bullets'
+         }"
+        [scrollbar]="true"
+        [loop]="false"
+        [breakpoints]="{
+            '320': {
+                 slidesPerView: 1,
+                 spaceBetween: 0
+            },
+            '768': {
+                 slidesPerView: 2,
+                 spaceBetween: 20
+            },
+            '992': {
+                slidesPerView: 3,
+                spaceBetween: 20
+            },
+            '1200': {
+                slidesPerView: 4,
+                spaceBetween: 40
+            }
+        }">
+    <ng-template swiperSlide>Slide 1</ng-template>
+    <ng-template swiperSlide>Slide 2</ng-template>
+    <ng-template swiperSlide>Slide 3</ng-template>
+    <ng-template swiperSlide>Slide 4</ng-template>
+    <ng-template swiperSlide>Slide 5</ng-template>
+    <ng-template swiperSlide>Slide 6</ng-template>
+</swiper>
